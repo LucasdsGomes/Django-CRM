@@ -1,32 +1,58 @@
 {% extends 'base.html' %}
+
 {% block title %}Home Page{% endblock %}
+
 {% block content %}
-
-<div class="col-md-6 offset-md-3">
-
+<div class="container">
     {% if user.is_authenticated %}
-        <h1> Hey ya! </h1>
+        <h1 class="mt-5 text-center fw-bold">Registros</h1>
 
+        <table class="table table-striped table-hover table-bordered table-sm">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Cidade</th>
+                    <th scope="col">CEP</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Telefone</th>
+                    <th scope="col">Endereço</th>
+                    <th scope="col">Criado em</th>
+                    <th scope="col">ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if costumers %}
+                    {% for costumer in costumers %}
+                        <tr>
+                            <td>{{ costumer.first_name }} {{ costumer.last_name }}</td>
+                            <td>{{ costumer.city }}</td>
+                            <td>{{ costumer.zipcode }}</td>
+                            <td>{{ costumer.email }}</td>
+                            <td>{{ costumer.phone }}</td>
+                            <td>{{ costumer.address }}</td>
+                            <td>{{ costumer.created_at }}</td>
+                            <td><a href="{% url 'record' costumer.id %}">{{ costumer.id }}</a></td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+            </tbody>
+        </table>
     {% else %}
-
-    <h1 class="text-center mt-5">Login</h1>
-
-    <form method="POST" action="{% url 'home'%}">
-        {% csrf_token %}
-        <form>
+    <div class="col-md-6 offset-md-3">
+        <h1 class="text-center mt-5">Login</h1>
+        <form method="POST" action="{% url 'home' %}">
+            {% csrf_token %}
             <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Usuário</label>
-              <input type="text" class="form-control" placeholder="Usuário" name="username" required>
+                <label for="exampleInputEmail1" class="form-label">Usuário</label>
+                <input type="text" class="form-control" placeholder="Usuário" name="username" required>
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Senha</label>
-              <input type="password" class="form-control" placeholder="Senha" name="password" required>
+                <label for="exampleInputPassword1" class="form-label">Senha</label>
+                <input type="password" class="form-control" placeholder="Senha" name="password" required>
             </div>
             <button type="submit" class="btn btn-outline-success">Entrar</button>
-          </form>
-    </form>
-</div>
-
+        </form>
     {% endif %}
-
+    </div>
+</div>
 {% endblock %}

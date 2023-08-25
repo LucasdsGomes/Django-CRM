@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Add User{% endblock %}
+{% block content %}
+
+<div class="col-md-6 offset-md-3 mt-3">
+<h1>Adicionar Usuario</h1>
+
+<form method="POST" action="{% url 'add_record' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <div class="text-center">
+        <button type="submit" class="btn btn-success">Registrar</button>
+    </div>
+    <div class="text-center">
+        <a href="{% url 'home' %}" class="btn mt-3 btn-outline-success">Voltar</a>   
+    </div>
+</form>
+</div>
+
+
+
+{% endblock %}

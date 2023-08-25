@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Already registered Page{% endblock %}
+{% block content %}
+
+  <div class="container mt-5 mb-5 accordion" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <strong>
+            {{ thecostumer_record.first_name }} 
+            {{ thecostumer_record.last_name }}
+            </strong>
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <strong>Cidade: </strong>        {{ thecostumer_record.city }}</p>
+          <strong>CEP: </strong>       {{ thecostumer_record.zipcode }}</p>
+          <strong>Email: </strong>       {{ thecostumer_record.email }}</p>
+          <strong>Telefone </strong>       {{ thecostumer_record.phone }}</p>
+          <strong>Endereço: </strong>       {{ thecostumer_record.address }}</p>
+          <strong>Criado em: </strong>       {{ thecostumer_record.created_at }}</p>
+          <strong>ID: </strong>       {{ thecostumer_record.id }}</p>
+        </div>
+      </div>
+    </div>
+    <a href="{% url 'home' %}" class="btn mt-3 btn-outline-success">Voltar</a>   
+    <a href="{% url 'delete_record' thecostumer_record.id %}" class="btn mt-3 btn-outline-danger">Excluir</a>   
+    <a href="{% url 'update_record' thecostumer_record.id %}" class="btn mt-3 btn-outline-danger">Atualizar</a>   
+  </div>
+
+
+{% endblock %}
