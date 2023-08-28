@@ -6,6 +6,9 @@ Bem-vindo ao DjangoPyHTML, um projeto que une a poderosa simplicidade do Python,
 🚀 Sobre o Projeto:
 O DjangoPyHTML é um exemplo inspirador de como a combinação perfeita entre back-end e front-end pode gerar aplicativos web excepcionais onde é possível efetuar o cadastro de usuários com formulários completamente validados e um banco de dados completo baseado em um CRM. Este repositório serve como um guia prático para você aprender a criar suas próprias aplicações usando essas tecnologias poderosas.
 
+![image](https://github.com/LucasdsGomes/Django-CRM/assets/114450172/916866e7-8b8c-4d79-a838-358d0afa27f2)
+
+
 💡 Recursos Destacados:
 
 🐍 Pythonic Backend: Utilizamos a linguagem de programação Python para criar um backend eficiente, legível e escalável.
@@ -29,7 +32,9 @@ git clone https://github.com/seu-usuario/DjangoPyHTML.git
 Uma vez que você tenha o repositório em sua máquina, navegue até o diretório principal e inicie o servidor Django:
 
 cd DjangoPyHTML
+
 python manage.py runserver
+
 Agora, abra seu navegador e acesse http://localhost:8000/ para ver a aplicação em ação.
 
 3. Explore os Exemplos
